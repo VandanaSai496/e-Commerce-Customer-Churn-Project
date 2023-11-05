@@ -45,7 +45,7 @@ Armed with tools like SQL and Python, we ventured into the vast realm of databas
 
 If this data was stored in a SQL database: 
 
--- Create a query to extract and combine necessary data from the tables
+# Create a query to extract and combine necessary data from the tables
 WITH combined_data AS (
     -- Join orders table with customers, payments, and reviews tables
     SELECT o.order_id, o.customer_id, o.order_status, o.order_purchase_timestamp,
@@ -57,16 +57,17 @@ WITH combined_data AS (
     JOIN payments p ON o.order_id = p.order_id
     JOIN reviews r ON o.order_id = r.order_id
 )
--- Execute the query to create a combined dataset
+--Execute the query to create a combined dataset
 SELECT * FROM combined_data;
 
+--Moving to python! Import the necessary libraries: 
 import pandas as pd
 import sqlalchemy as db
 
-# Create a connection to your database
+##Create a connection to your database
 engine = db.create_engine('database-url')
 
-# Define the SQL query (as above)
+--Define the SQL query (as above)
 query = """
     WITH combined_data AS (
         -- ... (same query as above)
@@ -74,27 +75,28 @@ query = """
     SELECT * FROM combined_data;
 """
 
-# Load data into a pandas DataFrame
+--Load data into a pandas DataFrame
 combined_data = pd.read_sql(query, engine)
 
 Now, 'combined_data' is a data frame containing all the data you need for your analysis
 
 If the data was in a Client Server, Third-Party Administrators, Data Centers, Cloud Services, we can use APIs, here's how we get the data from APIs: 
 
+# Through APIs
 import requests
 import json
 
-# Define the API endpoint and parameters
+--Define the API endpoint and parameters
 url = 'https://api.example.com/data'
 params = {
     'api_key': 'your_api_key',
     'other_param': 'value'
 }
 
-# Make the HTTP request
+--Make the HTTP request
 response = requests.get(url, params=params)
 
-# Check for a valid response
+--Check for a valid response
 if response.status_code == 200:
     # Parse the JSON data from the response
     data = response.json()
@@ -105,11 +107,12 @@ Since APIs return data in JSON Format, we can parse those JSON's through python 
 
 import pandas as pd
 
-# Convert the JSON data to a pandas DataFrame
+--Convert the JSON data to a pandas DataFrame
 df = pd.DataFrame(data)
 
-# Now, 'df' is a DataFrame containing the data from the API
+Now, 'df' is a DataFrame containing the data from the API
 
+# Through FileSystems
 For now, we have all the data in the Filesystem Format (Excel or CSV), we don't have to go through these steps. Here's the dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
 Go ahead and download this and now the fun begins. 
 
