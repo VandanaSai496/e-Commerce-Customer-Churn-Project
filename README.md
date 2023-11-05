@@ -11,7 +11,7 @@ This model seeks to unveil which customers might bid goodbye, helping us devise 
 In this endeavor, we'll dig into the tales told by data, seeking patterns that hint at a customer's intent to stay or stray. With this foresight, we aim to create a buzz, offering tailored shopping experiences 
 to keep our digital garden a lively and thriving marketplace.
 
-Join us on this exciting venture to keep the market bustling, using the magic of data to foster enduring customer bonds.**_
+Join us on this exciting venture to keep the market bustling, using the magic of data to foster enduring customer bonds.**
 
 ## Table of Contents
 1. [Data Collection](#data-collection)
