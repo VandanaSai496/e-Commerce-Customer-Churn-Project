@@ -77,23 +77,80 @@ query = """
 # Load data into a pandas DataFrame
 combined_data = pd.read_sql(query, engine)
 
-Now, 'combined_data' is a DataFrame containing all the data you need for your analysis
+Now, 'combined_data' is a data frame containing all the data you need for your analysis
 
-For now, we have all the data in excel, so, we don't have to go through these steps. Here's the dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
+If the data was in a Client Server, Third-Party Administrators, Data Centers, Cloud Services, we can use APIs, here's how we get the data from APIs: 
+
+import requests
+import json
+
+# Define the API endpoint and parameters
+url = 'https://api.example.com/data'
+params = {
+    'api_key': 'your_api_key',
+    'other_param': 'value'
+}
+
+# Make the HTTP request
+response = requests.get(url, params=params)
+
+# Check for a valid response
+if response.status_code == 200:
+    # Parse the JSON data from the response
+    data = response.json()
+else:
+    print(f'Failed to retrieve data: {response.status_code}')
+
+Since APIs return data in JSON Format, we can parse those JSON's through python using pandas library and retrieve it in a structured format: 
+
+import pandas as pd
+
+# Convert the JSON data to a pandas DataFrame
+df = pd.DataFrame(data)
+
+# Now, 'df' is a DataFrame containing the data from the API
+
+For now, we have all the data in the Filesystem Format (Excel or CSV), we don't have to go through these steps. Here's the dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data
 Go ahead and download this and now the fun begins. 
-
-
-
-
-
-
-
 
 With these data grains in our basket, we were ready to sift through them, hoping to unveil patterns and prophecies of customer loyalty and wanderlust, setting the stage for our analytical adventure.
 
 ## Data Cleaning and Preparation
 - Description of the data cleaning and preparation process.
 - Tools used: Excel, SQL, Python (pandas).
+
+** 1) Let's load the data from CSV into pandas dataFrames **
+
+import pandas as pd
+
+# Load each CSV file into a separate DataFrame
+olist_customers_df = pd.read_csv('olist_customers_dataset.csv')
+olist_geolocation_df = pd.read_csv('olist_geolocation_dataset.csv')
+olist_order_items_df = pd.read_csv('olist_order_items_dataset.csv')
+olist_order_payments_df = pd.read_csv('olist_order_payments_dataset.csv')
+olist_order_reviews_df = pd.read_csv('olist_order_reviews_dataset.csv')
+olist_orders_df = pd.read_csv('olist_orders_dataset.csv')
+olist_products_df = pd.read_csv('olist_products_dataset.csv')
+olist_sellers_df = pd.read_csv('olist_sellers_dataset.csv')
+olist_product_category_name_translation_df = pd.read_csv('product_category_name_translation.csv')
+
+# Now each DataFrame contains the data from the respective CSV file
+
+**
+2) Let's Examine the Data: **
+
+customers_df.head()
+customers_df.info()
+
+
+
+
+
+
+
+
+
+
 
 ## Exploratory Data Analysis
 - Description of the exploratory data analysis process, including visualizations.
